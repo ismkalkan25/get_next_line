@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikalkan <ikalkan@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/07 11:29:34 by ikalkan           #+#    #+#             */
-/*   Updated: 2025/07/09 12:12:35 by ikalkan          ###   ########.fr       */
+/*   Created: 2025/07/07 15:36:22 by ikalkan           #+#    #+#             */
+/*   Updated: 2025/07/09 13:04:03 by ikalkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 #include <stdlib.h>
 
 size_t	ft_strlen(const char *s)

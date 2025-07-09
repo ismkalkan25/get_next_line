@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikalkan <ikalkan@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/07 11:30:00 by ikalkan           #+#    #+#             */
-/*   Updated: 2025/07/09 12:47:34 by ikalkan          ###   ########.fr       */
+/*   Created: 2025/07/07 15:36:18 by ikalkan           #+#    #+#             */
+/*   Updated: 2025/07/09 13:07:24 by ikalkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -98,15 +98,15 @@ static char	*update_stash(char *stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*stash[4096];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= 4096 || BUFFER_SIZE <= 0)
 		return (NULL);
-	stash = read_and_stash(fd, stash);
-	if (!stash)
+	stash[fd] = read_and_stash(fd, stash[fd]);
+	if (!stash[fd])
 		return (NULL);
-	line = extract_line(stash);
-	stash = update_stash(stash);
+	line = extract_line(stash[fd]);
+	stash[fd] = update_stash(stash[fd]);
 	return (line);
 }
