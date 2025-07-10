@@ -6,7 +6,7 @@
 /*   By: ikalkan <ikalkan@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:36:18 by ikalkan           #+#    #+#             */
-/*   Updated: 2025/07/09 13:07:24 by ikalkan          ###   ########.fr       */
+/*   Updated: 2025/07/10 11:48:27 by ikalkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static char	*read_and_stash(int fd, char *stash)
 		if (bytes_read == -1)
 		{
 			free(buffer);
+			free(stash);
 			return (NULL);
 		}
 		buffer[bytes_read] = '\0';
@@ -39,8 +40,7 @@ static char	*read_and_stash(int fd, char *stash)
 			return (NULL);
 		}
 	}
-	free(buffer);
-	return (stash);
+	return (free(buffer), stash);
 }
 
 static char	*extract_line(char *stash)
