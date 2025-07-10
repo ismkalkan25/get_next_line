@@ -6,7 +6,7 @@
 /*   By: ikalkan <ikalkan@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 11:30:00 by ikalkan           #+#    #+#             */
-/*   Updated: 2025/07/09 12:47:34 by ikalkan          ###   ########.fr       */
+/*   Updated: 2025/07/09 18:15:37 by ikalkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ static char	*read_and_stash(int fd, char *stash)
 
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
-		return (NULL);
+		return (free(stash), NULL);
 	bytes_read = 1;
 	while ((!stash || !ft_strchr(stash, '\n')) && bytes_read != 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
+			free(stash);
 			free(buffer);
 			return (NULL);
 		}
@@ -39,8 +40,7 @@ static char	*read_and_stash(int fd, char *stash)
 			return (NULL);
 		}
 	}
-	free(buffer);
-	return (stash);
+	return (free(buffer), stash);
 }
 
 static char	*extract_line(char *stash)
