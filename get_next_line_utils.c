@@ -6,7 +6,7 @@
 /*   By: ikalkan <ikalkan@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 11:29:34 by ikalkan           #+#    #+#             */
-/*   Updated: 2025/07/09 12:12:35 by ikalkan          ###   ########.fr       */
+/*   Updated: 2025/07/10 15:58:48 by ikalkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_strdup(const char *s)
 	return (dup);
 }
 
-static size_t	ft_strcpy_part(char *dest, const char *src, size_t start)
+static void	ft_strcpy_part(char *dest, const char *src, size_t start)
 {
 	size_t	i;
 
@@ -72,7 +72,6 @@ static size_t	ft_strcpy_part(char *dest, const char *src, size_t start)
 		dest[start + i] = src[i];
 		i++;
 	}
-	return (i);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
