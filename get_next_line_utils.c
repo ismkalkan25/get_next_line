@@ -6,11 +6,10 @@
 /*   By: ikalkan <ikalkan@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 11:29:34 by ikalkan           #+#    #+#             */
-/*   Updated: 2025/07/10 15:58:48 by ikalkan          ###   ########.fr       */
+/*   Updated: 2025/07/11 12:19:22 by ikalkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
 #include <stdlib.h>
 
 size_t	ft_strlen(const char *s)

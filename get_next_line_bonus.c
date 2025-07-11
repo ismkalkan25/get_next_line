@@ -6,13 +6,14 @@
 /*   By: ikalkan <ikalkan@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:36:18 by ikalkan           #+#    #+#             */
-/*   Updated: 2025/07/10 11:48:27 by ikalkan          ###   ########.fr       */
+/*   Updated: 2025/07/11 17:41:55 by ikalkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 
 static char	*read_and_stash(int fd, char *stash)
 {
@@ -84,7 +85,7 @@ static char	*update_stash(char *stash)
 		return (free(stash), NULL);
 	new_stash = malloc(sizeof(char) * (ft_strlen(stash) - i));
 	if (!new_stash)
-		return (NULL);
+		return (free(stash), NULL);
 	i++;
 	j = 0;
 	while (stash[i])

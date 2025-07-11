@@ -6,7 +6,7 @@
 /*   By: ikalkan <ikalkan@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 11:30:00 by ikalkan           #+#    #+#             */
-/*   Updated: 2025/07/10 13:54:21 by ikalkan          ###   ########.fr       */
+/*   Updated: 2025/07/11 17:58:35 by ikalkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static char	*update_stash(char *stash)
 		return (free(stash), NULL);
 	new_stash = malloc(sizeof(char) * (ft_strlen(stash) - i));
 	if (!new_stash)
-		return (NULL);
+		return (free(stash), NULL);
 	i++;
 	j = 0;
 	while (stash[i])
